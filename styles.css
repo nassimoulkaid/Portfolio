@@ -483,7 +483,16 @@ nav ul li a:hover{
     font-size: 16px;
     color: var(--lightColor);
 }
-
+.alert{
+    width: 100%;
+    background-color: green;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 900;
+    display: none;
+}
 
     /* footer */
 

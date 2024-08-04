@@ -151,10 +151,10 @@
     </section>
 
     <!--contact-->
-
+    
     <section class="contact-section" id="contact">
         <h1>Contact <span>Me</span></h1>
-        <form class="contact-form" action="#" method="post">
+        <form class="contact-form" action="" method="post" id="Contactform">
             <div class="form-group">
                 <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
             </div>
@@ -168,8 +168,81 @@
                 <textarea id="message" name="message" rows="4" placeholder="Message" required></textarea>
             </div>
             <button class="buttona" type="submit">Send Message</button>
+            <div class="alert" id="alert">Your message has been sent</div>
         </form>
     </section>
+    
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    
+    <style>
+        .alert {
+            display: none; /* Initially hidden */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 22px;
+            width: auto;
+            max-width: 4000px; /* Set the max-width to prevent it from taking up too much space */
+            text-align: center;
+        }
+    </style>
+    
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCeFVf-O20zd1PCYxMW8PbV7Emu2m5xc88",
+            authDomain: "nassimoulkaid-2afe3.firebaseapp.com",
+            databaseURL: "https://nassimoulkaid-2afe3-default-rtdb.firebaseio.com",
+            projectId: "nassimoulkaid-2afe3",
+            storageBucket: "nassimoulkaid-2afe3.appspot.com",
+            messagingSenderId: "258063624021",
+            appId: "1:258063624021:web:4192179e461d192870b1dc"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    
+        var ContactformDB = firebase.database().ref('Contactform');
+        document.getElementById('Contactform').addEventListener('submit', submitForm );
+    
+        function submitForm(e) {
+            e.preventDefault();
+            var fullName = getElementByVal('fullName');
+            var email = getElementByVal('email');
+            var phone = getElementByVal('phone');
+            var message = getElementByVal('message');
+            saveMessages(fullName, email, phone, message);
+    
+            // Show the alert
+            var alert = document.getElementById('alert');
+            alert.style.display = 'block';
+    
+            // Hide the alert after 3 seconds
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 3000);
+        }
+    
+        const getElementByVal = (id) => {
+            return document.getElementById(id).value;
+        }
+    
+        const saveMessages = (fullName, email, phone, message) => {
+            var newContactformDB = ContactformDB.push();
+            newContactformDB.set({
+                fullName: fullName,
+                email: email,
+                phone: phone,
+                message: message,
+            });
+        }
+    </script>
+    
 
     <!--footer-->
 
