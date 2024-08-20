@@ -16,7 +16,7 @@
 
     <section class="home" id="Home">
         <nav>
-            <h2 class="navbar-brand">Software <span class="highlight">Engineer</span></h2>
+            <h2 class="navbar-brand">Software <span class="highlight"> Engineer</span></h2>
             <div class="menu-icon" onclick="toggleMenu()">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -61,7 +61,9 @@
         }
     </script>
 
+
     <!--about me-->
+
 
     <section class="about-me" id="about-me">
         <div class="container-images">
@@ -77,6 +79,57 @@
             </p>
         </div>
     </section> 
+
+
+    <!--projects-->
+
+
+    <section id="projects">
+        <h1>My <span>Projects</span></h1>
+        <div class="project-container">
+            <div class="project">
+                <video src="videos/projet2.mp4" controls></video>
+                <p>Full-stack development of the website attarwij agency.</p>
+            </div>
+            <div class="project">
+                <video src="videos/project3.mp4" controls></video>
+                <p>Building a small Snake game project using Java.</p>
+            </div>
+            <div class="project">
+                <video src="videos/project1.mp4" controls></video>
+                <p>Building an Amazon application project for mobile devices using React Native.</p>
+            </div>
+            <div class="project">
+                <video src="videos/video4.mp4" controls></video>
+                <p>My own portfolio project connected to Firebase.</p>
+            </div>
+            <div class="project">
+                <video src="video5.mp4" controls></video>
+                <p>Project 5 Description</p>
+            </div>
+        </div>
+        <button class="scroll-btn left" onclick="scrollLeft()">←</button>
+        <button class="scroll-btn right" onclick="scrollRight()">→</button>
+    </section>
+    
+    <script>
+        function scrollLeft() {
+            document.querySelector('.project-container').scrollBy({
+                left: -300,
+                behavior: 'smooth'
+            });
+        }
+    
+        function scrollRight() {
+            document.querySelector('.project-container').scrollBy({
+                left: 300,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+    
+    
+
 
     <!--services-->
 
